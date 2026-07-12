@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run Terraform checks against the infrastructure directory
+cd infrastructure || exit 1
+
+# Ensure providers are available for validate (no remote backend)
+terraform init -backend=false -input=false >/dev/null
+
+terraform fmt -check -recursive
+terraform validate
+tflint
