@@ -14,6 +14,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "lab" {
-  name     = "rg-cst8918-lab-a09"
-  location = "canadacentral"
+name="rg-cst8918-lab-a09"
+  location="canadacentral"
 }
